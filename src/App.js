@@ -6,6 +6,7 @@ import About from "./components/About";
 import Services from "./components/Services";
 import Blog from "./components/Blog";
 import Shazam from "./components/Shazam";
+import SignIn from "./components/SignIn";
 function App() {
   return (
     <BrowserRouter >
@@ -17,6 +18,7 @@ function App() {
         <Route exact path='/services' element={<Services/>} />
         <Route exact path='/blog' element={<Blog/>} />
         <Route exact path='/shazam' element={<Shazam/>} />
+        <Route exact path='/signin' element={<SignIn/>} />
       </Routes>
         
       </main>

@@ -54,12 +54,11 @@ const Navbar = () => {
               <a className="nav-link" >Shazam</a>
             </li>
             </Link>
+            <Link to="/signin" className="nav-navigation">
             <li className="nav-item">
-              <a className="nav-link" >Sign In</a>
+              <a className="nav-link" >Sign In/Up</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" >Sign Up</a>
-            </li>
+            </Link>
           </ul>
           <form className="form-inline my-2 my-lg-0">
             <input className={openInput?"form-control nav_search-input mr-sm-2":"form-control nav_search-input mr-sm-2 d-none"} type="search" placeholder="Search"

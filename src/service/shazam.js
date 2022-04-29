@@ -1,15 +1,15 @@
 import axios from "axios";
 const recognize=(blob)=>{
-    const data = new FormData();
-      data.append("file", blob,"data.mp3");
+  let data = {
+    'api_token': 'df036b03289fb81106374cd8dff14aa6',
+    'file': blob,
+};
     const options = {
         method: 'POST',
-        url: 'https://shazam-core.p.rapidapi.com/v1/tracks/recognize',
-        headers: {
-          'X-RapidAPI-Host': 'shazam-core.p.rapidapi.com',
-          'X-RapidAPI-Key': '6c057e9d4cmsh5f3eddd0f753f00p1a7f96jsn9ab169946c96',
-        },
-        data: data
+        url: 'https://api.audd.io/',
+        data:data,
+        headers: { 'Content-Type': 'multipart/form-data' },
+        
       };
 
       return axios.request(options)
