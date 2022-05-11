@@ -7,11 +7,12 @@ import Services from "./components/Services";
 import Blog from "./components/Blog";
 import Shazam from "./components/Shazam";
 import SignIn from "./components/SignIn";
+import Playlist from "./components/Playlist";
 function App() {
   return (
     <BrowserRouter >
-      <Navbar />
-      <main className="main">
+      
+      
       <Routes>
         <Route exact path='/' element={<Home />} />
         <Route exact path='/about' element={<About />} />
@@ -19,10 +20,11 @@ function App() {
         <Route exact path='/blog' element={<Blog/>} />
         <Route exact path='/shazam' element={<Shazam/>} />
         <Route exact path='/signin' element={<SignIn/>} />
+        <Route exact path='/playlist/:id' element={<Playlist/>} />
       </Routes>
         
-      </main>
-      <Footer/>
+      
+      
       
     </BrowserRouter >
   );

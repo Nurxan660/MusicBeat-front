@@ -8,7 +8,14 @@ import Input from "react-validation/build/input";
 import Alert from '@mui/material/Alert';
 import { observer } from 'mobx-react-lite';
 import CheckButton from "react-validation/build/button";
+const required = (value) => {
+    if (!value) {
+      return (
+        <Alert severity="error">This field is required</Alert>
 
+      );
+    }
+  };
 const Login = observer(()=>{
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
@@ -65,23 +72,23 @@ const Login = observer(()=>{
         ):null}
                 <Form ref={form} onSubmit={handleOnClick}>
 
-				<div class="group">
-					<label for="user" class="label">Email</label>
-					<Input id="user" type="text" class="input" value={email} onChange={onChangeEmail}/>
+				<div className="group">
+					<label for="user" className="label">Email</label>
+					<Input id="user" type="text" className="input" value={email} onChange={onChangeEmail} validations={[required]}/>
 				</div>
-				<div class="group">
-					<label for="pass" class="label">Password</label>
-					<Input id="pass" type="password" class="input" data-type="password" value={password} onChange={onChangePassword}/>
+				<div className="group">
+					<label for="pass" className="label">Password</label>
+					<Input id="pass" type="password" className="input" data-type="password" value={password} onChange={onChangePassword} validations={[required]}/>
 				</div>
-				<div class="group">
-					<Input id="check" type="checkbox" class="check" checked/>
-					<label for="check"><span class="icon"></span> Keep me Signed in</label>
+				<div className="group">
+					<Input id="check" type="checkbox" className="check" checked />
+					<label for="check"><span className="icon"></span> Keep me Signed in</label>
 				</div>
-				<div class="group">
-					<Input type="submit" class="button" value="Log In"/>
+				<div className="group">
+					<Input type="submit" className="button" value="Log In"/>
 				</div>
-				<div class="hr"></div>
-				<div class="foot-lnk">
+				<div className="hr"></div>
+				<div className="foot-lnk">
 					<a href="#forgot">Forgot Password?</a>
 				</div>
                 <CheckButton style={{ display: "none" }} ref={checkBtn} />

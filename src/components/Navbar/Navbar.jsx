@@ -4,9 +4,16 @@ import "../css/bootstrap.css"
 import "../css/responsive.css"
 import logo from '../../images/iconlight.png'
 import { Link } from 'react-router-dom'
+import { logout } from '../../service/authService'
+import { removeUser } from '../../store/tokenService'
+import { getUser } from '../../service/tokenService'
+import { useNavigate } from 'react-router-dom'
+import authStore from '../../store/authStore'
 const Navbar = () => {
+  const currentUser=getUser()
   const [open,setOpen]=useState(false);
   const [openInput,setOpenInput]=useState(false)
+  const navigate=useNavigate()
   const handleClick=(e)=>{
     setOpen(!open)
   }
@@ -14,6 +21,14 @@ const Navbar = () => {
     e.preventDefault();
     setOpenInput(!openInput)
   }
+  const handleLogOut=()=>{
+    logout(currentUser?.id).then(()=>{
+        navigate('/')
+        removeUser()
+        authStore.setCurrentUser(undefined) 
+        
+    })
+}
   return (
     <header className="header_section">
     <div className="container">
@@ -54,11 +69,27 @@ const Navbar = () => {
               <a className="nav-link" >Shazam</a>
             </li>
             </Link>
-            <Link to="/signin" className="nav-navigation">
+            
+            {currentUser?(
+              <li className="nav-item" >
+              <a className="nav-link" onClick={handleLogOut}>LogOut</a>
+            </li>
+            ):(<Link to="/signin" className="nav-navigation">
             <li className="nav-item">
               <a className="nav-link" >Sign In/Up</a>
             </li>
+            </Link>)}
+            <Link to="/playlist" className="nav-navigation">
+            <li className="nav-item">
+              <a className="nav-link" >Playlist</a>
+            </li>
             </Link>
+            {currentUser&&(
+              <li className="nav-item">
+              <a className="nav-link" >{currentUser.email}</a>
+            </li>
+            )}
+            
           </ul>
           <form className="form-inline my-2 my-lg-0">
             <input className={openInput?"form-control nav_search-input mr-sm-2":"form-control nav_search-input mr-sm-2 d-none"} type="search" placeholder="Search"

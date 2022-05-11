@@ -1,7 +1,6 @@
 import axios from 'axios'
-import { removeUser } from './tokenService';
-const API_URL = "http://localhost:8080/auth";
 
+const API_URL = "https://music-beats32.herokuapp.com/auth";
 
 const reg=(nickname,email,password)=>{
     return axios.post(API_URL+'/signup',{nickname,email,password})

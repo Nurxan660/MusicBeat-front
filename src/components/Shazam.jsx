@@ -3,6 +3,8 @@ import logo from '../images/icon.png'
 import MicRecorder from 'mic-recorder-to-mp3';
 import { recognize } from '../service/shazam';
 import Modal from './Modal/Modal';
+import Navbar from './Navbar/Navbar'
+import Footer from './Footer/Footer'
 const Shazam = () => {
     const Mp3Recorder = new MicRecorder({ bitRate: 128 })
     const [isRecording,setIsRecording]=useState(false)
@@ -60,10 +62,17 @@ const Shazam = () => {
       }}
     
   return (
+    <>
+    <Navbar/>
+    <main className="main">
     <div className="shazam">
       <Modal handleClose={handleClose} open={open} message={message}/>
         <button className={isRecording?"shazam-button pulse-shazam":"shazam-button"} onClick={start} disabled={isRecording}></button>
     </div>
+    </main>
+    <Footer/>
+    
+    </>
   )
 }
 

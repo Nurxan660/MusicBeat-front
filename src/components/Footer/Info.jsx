@@ -1,14 +1,19 @@
-import React from 'react'
+import React,{useState} from 'react'
 import youtube from '../../images/youtube.png'
 import twitter from '../../images/twitter.png'
 import linkedln from '../../images/linkedin.png'
 import fb from '../../images/fb.png'
 
 const Info = () => {
+ 
+
   return (
     <section className="info_section layout_padding">
     <div className="container">
       <div className="row">
+      <div className="App">
+      
+    </div>
         <div className=" col-md-4 info_detail">
           <div>
             <p>

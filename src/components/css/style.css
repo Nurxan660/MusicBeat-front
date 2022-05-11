@@ -872,3 +872,109 @@ a:focus {
 .foot-lnk{
 	text-align:center;
 }
+
+
+.item{
+ height: 200px;
+ cursor:pointer;
+ 
+}
+
+.item img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.music{
+  padding: 20px;
+  display: flex;
+  background-color: #fff9e1;
+  margin: 30px;
+}
+.music-image{
+  height: 250px;
+  width: 250px;
+}
+.music-image img{
+  
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+
+}
+.music-description{
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+  align-self:flex-end;
+}
+.music-description p{
+  font-size: 60px;
+}
+.music-list{
+  margin: 30px;
+}
+.music-list-header{
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gainsboro;
+}
+.music-list-content{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 7px;
+}
+.music-list-content:hover{
+  background-color: rgb(210, 207, 207);
+}
+.music-list-img{
+  height: 60px;
+  width: 60px;
+  margin-left: 10px;
+}
+.music-list-img img{
+  height:100%;
+  width: 100%;
+  object-fit: contain;
+}
+.music-list-name{
+  display: flex;
+  
+}
+.music-list-name span{
+ word-wrap: break-word;
+}
+.musicName{
+  width: 270px;
+  margin-left: 10px;
+}
+.album{
+  width: 280px;
+  margin-right: 110px;
+  word-wrap: break-word;
+}
+.musicList-duration{
+  margin-right: 14px;
+}
+
+.play{
+  width: 28px;
+  height: 28px;
+  margin-top: 18px;
+  cursor: pointer;
+}
+.rhap_time{
+  color:white!important;
+}
+
+.download{
+  height: 25px;
+  width: 25px;
+}
+.down{
+  display: flex;
+}

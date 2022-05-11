@@ -68,12 +68,13 @@ const onChangeEmail=(e)=>{
         if (checkBtn.current.context._errors.length === 0) {
         reg(authStore.nickname,authStore.email, authStore.password)
     .then((res)=>{
-        authStore.setNickname('');
-        authStore.setPassword('');
-        authStore.setEmail('');
+        
         authStore.setMessage(res.data.message)
+        setTimeout(()=>{
+            authStore.setMessage(null)
+        },2000)
         authStore.setSucess(true)
-        navigate("/login")
+        navigate("/signin")
     })
     .catch((err)=>{
         authStore.setMessage(err.response.data.message)
@@ -86,31 +87,31 @@ const onChangeEmail=(e)=>{
   return (
     <div class="sign-up-htm">
         <Form onSubmit={handleOnSubmit} ref={form}>
-				<div class="group">
-					<label for="user" class="label">Username</label>
-					<Input id="user" type="text" class="input" value={authStore.nickname}
+				<div className="group">
+					<label for="user" className="label">Username</label>
+					<Input id="user" type="text" className="input" value={authStore.nickname}
                      onChange={onChangeNic} validations={[required,validName]} />
 				</div>
-				<div class="group">
-					<label for="pass" class="label">Password</label>
-					<Input id="pass" type="password" class="input" data-type="password" 
+				<div className="group">
+					<label for="pass" className="label">Password</label>
+					<Input id="pass" type="password" className="input" data-type="password" 
                     value={authStore.password} onChange={onChangePas} validations={[required,validPassword]}/>
 				</div>
 				
-				<div class="group">
-					<label for="pass" class="label">Email Address</label>
-					<Input id="pass" type="text" class="input" value={authStore.email} onChange={onChangeEmail}  
+				<div className="group">
+					<label for="pass" className="label">Email Address</label>
+					<Input id="pass" type="text" className="input" value={authStore.email} onChange={onChangeEmail}  
                     validations={[required,validEmail]}/>
 				</div>
-				<div class="group">
-					<Input type="submit" class="button" value="Sign Up"/>
+				<div className="group">
+					<Input type="submit" className="button" value="Sign Up"/>
 				</div>
                 {authStore.message&&
     ( <div className="auth-alert">
-        {authStore.sucess?"":<Alert severity="error">{authStore.message}</Alert>}
+        {authStore.sucess?<Alert severity="success">{authStore.message}</Alert>:<Alert severity="error">{authStore.message}</Alert>}
     </div>)}
-				<div class="hr"></div>
-				<div class="foot-lnk">
+				<div className="hr"></div>
+				<div className="foot-lnk">
 					<label for="tab-1">Already Member?</label>
 				</div>
                     <CheckButton style={{ display: "none" }} ref={checkBtn} />

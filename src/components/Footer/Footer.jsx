@@ -1,9 +1,17 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Info from './Info'
-const Footer = () => {
+import MusicPlayerFooter from './MusicPlayerFooter'
+import { getUser } from '../../service/tokenService'
+const Footer = ({player}) => {
+  const user=getUser()
+  
   return (
     <>
+    {user?
+    <MusicPlayerFooter player={player} />:
     <Info/>
+    }
+    
     <section className="container-fluid footer_section">
     <p>
       Copyright &copy; 2022 All Rights Reserved By

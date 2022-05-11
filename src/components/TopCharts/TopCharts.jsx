@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { useEffect ,useState} from 'react'
 import arrow from '../../images/arrow-black.png'
 import Slider from "react-slick";
 import right from '../../images/right.png'
 import left from '../../images/left.png'
 import tame from '../../images/tame.png'
-
-
-
+import { getCategories } from '../../service/musicService';
+import { Link } from 'react-router-dom';
 function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -31,13 +30,22 @@ function SampleNextArrow(props) {
   }
   
 const TopCharts = () => {
+  const [categories,setCategories]=useState()
+
+  useEffect(()=>{
+    getCategories().then((res)=>{
+      setCategories(res.data)
+    }).catch((err)=>{
+      console.log(err)
+    })
+  },[])
     
     const settings = {
         className: "center",
         centerMode: true,
         infinite: true,
         centerPadding: "60px",
-        slidesToShow: 3,
+        slidesToShow: 2,
         speed: 500,
         nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
@@ -46,7 +54,7 @@ const TopCharts = () => {
               breakpoint: 1024,
               settings: {
                 centerMode: true,
-                slidesToShow: 3,
+                slidesToShow: 2,
                 slidesToScroll: 1,
                 infinite: true,
                 
@@ -74,40 +82,33 @@ const TopCharts = () => {
       };
   return (
     <section className="security_section layout_padding">
-    <h3>
-      Hot Topic
+      {categories?.map((d)=>{
+          return (
+            <div key={d.mainCategoryId}>
+    <h3 style={{marginBottom:"20px"}}>
+    {d.mainCategoryName}
 
 
     </h3>
-    <h2>
-      This week's chrats
-    </h2>
+    
    
        
         <Slider {...settings}>
-        <div class="item">
-            <div class="security_img-box i-box-1">
-              <a href=""> View More</a>
-            </div>
-          </div>
+        {d.categoryList.map((d)=>{
+          return (
+            
+            <Link to={`/playlist/${d.categoryId}`}>
           <div class="item">
-            <div class="security_img-box i-box-2">
-              <a href=""> View More</a>
-            </div>
+            <img src={d.categoryImg} />
           </div>
-          <div class="item">
-            <div class="security_img-box i-box-3">
-              <a href=""> View More</a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="security_img-box i-box-3">
-              <a href=""> View More</a>
-            </div>
-          </div>
-         
+          </Link>
+          )
+        })}
           
         </Slider>
+        </div>
+        )
+        })}
       
 
     
