@@ -49,21 +49,12 @@ const Navbar = () => {
               <a className="nav-link" >Home <span className="sr-only">(current)</span></a>
             </li>
             </Link>
-            <Link to="/about" className="nav-navigation">
+            <Link to="/search" className="nav-navigation">
             <li className="nav-item">
-              <a className="nav-link" >About Us </a>
+              <a className="nav-link" >Search</a>
             </li>
             </Link>
-            <Link to="/services" className="nav-navigation">
-            <li className="nav-item">
-              <a className="nav-link" >Services</a>
-            </li>
-            </Link>
-            <Link to="/blog" className="nav-navigation">
-            <li className="nav-item">
-              <a className="nav-link" >Blog</a>
-            </li>
-            </Link>
+            
             <Link to="/shazam" className="nav-navigation">
             <li className="nav-item">
               <a className="nav-link" >Shazam</a>
@@ -71,19 +62,22 @@ const Navbar = () => {
             </Link>
             
             {currentUser?(
+              <>
+              <Link to='/user/playlists' className="nav-item">
+              <li className="nav-item" >
+              <a className="nav-link" >Playlists</a>
+            </li>
+            </Link>
               <li className="nav-item" >
               <a className="nav-link" onClick={handleLogOut}>LogOut</a>
             </li>
+            </>
             ):(<Link to="/signin" className="nav-navigation">
             <li className="nav-item">
               <a className="nav-link" >Sign In/Up</a>
             </li>
             </Link>)}
-            <Link to="/playlist" className="nav-navigation">
-            <li className="nav-item">
-              <a className="nav-link" >Playlist</a>
-            </li>
-            </Link>
+            
             {currentUser&&(
               <li className="nav-item">
               <a className="nav-link" >{currentUser.email}</a>

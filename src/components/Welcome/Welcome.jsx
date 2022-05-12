@@ -1,5 +1,7 @@
 import React from 'react'
 import stream from '../../images/stream.jpeg'
+import { Link } from 'react-router-dom'
+import playlistStore from '../../store/playlistStore'
 const Welcome = () => {
   return (
     <section className="welcome_section layout_padding">
@@ -13,24 +15,20 @@ const Welcome = () => {
         <div className=" col-md-6">
           <div className="welcome_detail">
             <h3>
-              Features
+              Playlists
             </h3>
             <h2>
-              Download and stream
+              Create your own playlist
             </h2>
             <p>
-              Our independent voice AI platform allows brands in a wide range
-              of industries to add interfaces and wake words
-              to any hardware, software, or mobile app. Built on our
-              recognizer technology, MB delivers unprecedented speed and accuracy.
+              Choose any music and just add to your playlist , then enjoy!
             </p>
             <div className="welcome_detail-btn">
-              <a href="">
-                <span>
-                  Read More
+                <span onClick={()=>playlistStore.setOpen(true)} style={{cursor:"pointer"}}>
+                  Click to starting !
                 </span>
                 <img src="images/arrow-black.png" alt="" className="ml-2" />
-              </a>
+                
             </div>
           </div>
         </div>

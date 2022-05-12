@@ -19,12 +19,10 @@ const Playlist = () => {
     },[])
   return (
       <>
-      <Navbar/>
-      <main className="main">
+      
     <MusicContent  />
     <MusicList player={player} />
-    </main>
-    <Footer player={player}/>
+    
     </>
   )
 }

@@ -5,13 +5,11 @@ import Footer from './Footer/Footer'
 const Blog = () => {
   return (
     <>
-    <Navbar/>
-    <main className="main">
+    
       <div className="story">
     <Story/>
     </div>
-    </main>
-    <Footer/>
+    
     </>
   )
 }

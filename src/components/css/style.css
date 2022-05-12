@@ -896,7 +896,7 @@ a:focus {
   width: 250px;
 }
 .music-image img{
-  
+  object-fit: contain;
   flex-wrap: wrap;
   height: 100%;
   width: 100%;
@@ -978,3 +978,11 @@ a:focus {
 .down{
   display: flex;
 }
+
+.pagination-music{
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+

@@ -5,11 +5,9 @@ import Footer from './Footer/Footer'
 const Services = () => {
   return (
     <>
-    <Navbar/>
-    <main className="main">
+    
     <Service/>
-    </main>
-    <Footer/>
+    
     </>
   )
 }

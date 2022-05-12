@@ -6,8 +6,7 @@ import Footer from './Footer/Footer'
 const SignIn = () => {
   return (
 	  <>
-	  <Navbar/>
-	  <main className="main">
+	  
     <div class="login-wrap">
 	<div class="login-html">
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked/><label for="tab-1" class="tab">Log In</label>
@@ -18,8 +17,7 @@ const SignIn = () => {
 		</div>
 	</div>
 </div>
-</main>
-<Footer/>
+
 </>
   )
 }

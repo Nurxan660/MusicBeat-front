@@ -63,14 +63,12 @@ const Shazam = () => {
     
   return (
     <>
-    <Navbar/>
-    <main className="main">
+    
     <div className="shazam">
       <Modal handleClose={handleClose} open={open} message={message}/>
         <button className={isRecording?"shazam-button pulse-shazam":"shazam-button"} onClick={start} disabled={isRecording}></button>
     </div>
-    </main>
-    <Footer/>
+    
     
     </>
   )

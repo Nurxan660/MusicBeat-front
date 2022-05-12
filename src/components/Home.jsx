@@ -4,20 +4,18 @@ import Welcome from './Welcome/Welcome'
 import Service from './Service/Service'
 import TopCharts from './TopCharts/TopCharts'
 import Story from './Story/Story'
-import Navbar from './Navbar/Navbar'
-import Footer from './Footer/Footer'
+import PlaylistCreationForm from './UserPlaylist/PlaylistCreationForm'
 const Home = () => {
   return (
     <>
-    <Navbar/>
-    <main className="main">
+    
     <Slider/>
     <Welcome/>
     <Service/>
     <TopCharts/>
     <Story/>
-    </main>
-    <Footer/>
+    <PlaylistCreationForm/>
+    
     </>
   )
 }

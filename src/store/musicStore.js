@@ -1,9 +1,13 @@
 import { makeAutoObservable } from "mobx";
-
+import { getMusicByPattern } from "../service/musicService";
 
 class MusicStore{
     musicByCategories=[]
     trackIndex=0
+    
+    musicBySearch={}
+    searchValue=''
+    canselSearch=false
     constructor(){
         makeAutoObservable(this)
     }  
@@ -34,6 +38,31 @@ class MusicStore{
      setTrackIndex(currentTrack){
         this.trackIndex=currentTrack
      }
+
+     
+
+     setSearchValue(value){
+         this.searchValue=value
+
+     }
+
+     handleOnChange(pattern,page,size){
+         
+         this.setSearchValue(pattern)
+         getMusicByPattern(pattern,page,size).then((res)=>{
+             this.musicBySearch=res.data
+         })
+        }
+        setCanselSearch(){
+            this.canselSearch=!this.canselSearch
+        }
+        
+     }
+
+    
+    
+     
+
     
   
 
@@ -44,6 +73,6 @@ class MusicStore{
 
 
 
-}
+
 
 export default new MusicStore()

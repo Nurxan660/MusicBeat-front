@@ -9,4 +9,9 @@ const getCategories=()=>{
 const getMusicByCategories=(id)=>{
     return axios.get(API_URL+`/get/musicByCategories?categoryId=${id}`)
 }
-export {getCategories,getMusicByCategories}
+
+const getMusicByPattern=(pattern,page,size)=>{
+    return axios.get(API_URL+`/get/allByPattern?pattern=${pattern}&page=${page}&size=${size}`)
+}
+
+export {getCategories,getMusicByCategories,getMusicByPattern}
