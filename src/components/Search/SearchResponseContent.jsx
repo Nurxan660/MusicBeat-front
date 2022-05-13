@@ -8,27 +8,23 @@ import download from '../../images/download.png'
 import Pagination from '@mui/material/Pagination';
 import { getMusicByPattern } from '../../service/musicService'
 const SearchResponseContent = observer(()=>{
-    const [open, setOpen] = React.useState(false);
     const user=getUser()
 
     useEffect(()=>{
         musicStore.handleOnChange('',0,10)
     },[musicStore.canselSearch])
 
+
+    
+
     
 
   
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  
     const audioFunction = (index) => {
-        if(user){
             musicStore.setTrackIndex(index)
-        }
-        else{
-            setOpen(true);
-        }
+        
         
       };
   return (
@@ -54,7 +50,8 @@ const SearchResponseContent = observer(()=>{
                 <span className="album">{d?.name}</span>
                 <div className='down'>
                 <span className="musicList-duration">{d?.duration}</span>
-                <a href={d?.downloadUrl} style={{textDecoration:"none"}} download><img src={download} style={{cursor:"pointer"}} className="download"/></a>
+                {user&&
+                <a href={d?.downloadUrl} style={{textDecoration:"none"}} download><img src={download} style={{cursor:"pointer"}} className="download"/></a>}
                 </div>
             </div>)})}
        

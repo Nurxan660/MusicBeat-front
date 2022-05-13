@@ -49,7 +49,9 @@ const MusicList = observer(({player})=>{
                 <span className="album">{d.music.album}</span>
                 <div className='down'>
                 <span className="musicList-duration">{d.music.duration}</span>
-                <a href={d.music.downloadUrl} style={{textDecoration:"none"}} download><img src={download} style={{cursor:"pointer"}} className="download"/></a>
+                {user&&
+                <a href={d.music.downloadUrl}  style={{textDecoration:"none"}} ><img src={download} style={{cursor:"pointer"}} className="download"/></a>
+                 }
                 </div>
             </div>)})}
        

@@ -50,7 +50,9 @@ class MusicStore{
          
          this.setSearchValue(pattern)
          getMusicByPattern(pattern,page,size).then((res)=>{
+             
              this.musicBySearch=res.data
+             this.musicByCategories=res.data.content
          })
         }
         setCanselSearch(){

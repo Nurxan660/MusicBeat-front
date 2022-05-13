@@ -7,12 +7,21 @@ import { useParams } from 'react-router-dom'
 import playlistStore from '../../store/playlistStore'
 import { observer } from 'mobx-react-lite'
 import { deleteMusicFromPlaylist } from '../../service/playlistService'
+import musicStore from '../../store/musicStore'
 const PlaylistAdded = observer(()=>{
     const params=useParams()
+
+
+    const audioFunction = (index) => {
+            musicStore.setTrackIndex(index)
+        
+        
+      };
 
     useEffect(()=>{
         getByUniqueAddress(params.id,playlistStore.playlistDetailPage-1,10).then((res)=>{
             playlistStore.setUserPlayListMusic(res.data)
+            musicStore.setMusicByCategories(res.data.content)
         })
     },[playlistStore.playlistDetailPage,playlistStore.addedMusicMessage])
 
@@ -23,15 +32,15 @@ const PlaylistAdded = observer(()=>{
     }
   return (
       <>
-      {playlistStore?.userPlaylistMusic?.content?.map((d)=>{
+      {playlistStore?.userPlaylistMusic?.content?.map((d,index)=>{
           return (
             <div className="music-list-content" style={{marginLeft:"240px",marginRight:"240px",marginTop:"10px"}}>
             <div className="music-list-name">
                 
-                <img src={play}  className="play" />
+                <img src={play}  className="play" onClick={()=>audioFunction(index)} />
                 
                 <div className="music-list-img">
-                    <img src={d?.music?.imageUrl}/>
+                    <img src={d?.music?.imageUrl} />
                 </div>
                 <span className="musicName">{d?.music?.name}</span>
             </div>

@@ -25,11 +25,11 @@ const MusicPlayerFooter = observer(()=>{
         style={{ backgroundColor:"black",color:"white"}}
         // layout="horizontal"
         autoPlay={false}
-        src={musicStore?.musicByCategories[musicStore.trackIndex]?.music?.url}
+        src={musicStore?.musicByCategories[musicStore.trackIndex]?.music?.url||musicStore?.musicByCategories[musicStore.trackIndex]?.url}
         onPlay={(e) => console.log("onPlay")}
         showSkipControls={true}
         showJumpControls={false}
-        header={`${musicStore?.musicByCategories[musicStore.trackIndex]?.music?.name}`}
+        header={`${musicStore?.musicByCategories[musicStore.trackIndex]?.music?.name||musicStore?.musicByCategories[musicStore.trackIndex]?.name}`}
         preload="none"
         ref={player}
         onClickPrevious={handleClickPrevious}

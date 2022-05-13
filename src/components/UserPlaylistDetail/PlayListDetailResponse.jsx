@@ -11,6 +11,7 @@ const PlayListDetailResponse = observer(()=>{
     const handleAddButton=(musicId)=>{
         addMusic(musicId,params.id).then((res)=>{
             playlistStore.setAddedMusicMessage()
+            
         })
 
     }
