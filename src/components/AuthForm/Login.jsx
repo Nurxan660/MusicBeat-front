@@ -8,6 +8,7 @@ import Input from "react-validation/build/input";
 import Alert from '@mui/material/Alert';
 import { observer } from 'mobx-react-lite';
 import CheckButton from "react-validation/build/button";
+import { CircularProgress } from '@mui/material'
 const required = (value) => {
     if (!value) {
       return (
@@ -53,7 +54,10 @@ const Login = observer(()=>{
                 }
             }).catch((error)=>{
                 setLoading(false)
-                setMessage(error.response.data.message)
+                setMessage(error.response.data.message||"Ошибка")
+                setTimeout(()=>{
+                    setMessage('')
+                },2000)
             })
         }
     }
@@ -86,7 +90,13 @@ const Login = observer(()=>{
 				</div>
 				<div className="group">
 					<Input type="submit" className="button" value="Log In"/>
+                    {loading&&
+                    <CircularProgress color="success" style={{marginTop:"10px",marginLeft:"170px"}} />
+                        }
+
 				</div>
+                {message&&<Alert severity="error">{message}</Alert>}
+
 				<div className="hr"></div>
 				<div className="foot-lnk">
 					<a href="#forgot">Forgot Password?</a>
