@@ -74,6 +74,7 @@ const onChangeEmail=(e)=>{
             authStore.setMessage(null)
         },2000)
         authStore.setSucess(true)
+        window.location.reload()
         navigate("/signin")
     })
     .catch((err)=>{
