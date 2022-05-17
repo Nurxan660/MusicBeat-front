@@ -3,6 +3,7 @@ import Login from './AuthForm/Login'
 import Reg from './AuthForm/Reg'
 import Navbar from './Navbar/Navbar'
 import Footer from './Footer/Footer'
+import ForgotPassword from './AuthForm/ForgotPassword'
 const SignIn = () => {
   return (
 	  <>
@@ -17,6 +18,7 @@ const SignIn = () => {
 		</div>
 	</div>
 </div>
+<ForgotPassword/>
 
 </>
   )

@@ -49,6 +49,8 @@ const Login = observer(()=>{
                        authStore.setCurrentUser(res.data)
                         setLoading(false)
                         navigate('/')
+                        window.location.reload()
+
                     },1000)
                    
                 }
@@ -99,7 +101,7 @@ const Login = observer(()=>{
 
 				<div className="hr"></div>
 				<div className="foot-lnk">
-					<a href="#forgot">Forgot Password?</a>
+					<a onClick={()=>authStore.setOpenPasswordRestore(true)} style={{cursor:"pointer"}}>Forgot Password?</a>
 				</div>
                 <CheckButton style={{ display: "none" }} ref={checkBtn} />
 

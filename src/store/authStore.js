@@ -8,6 +8,7 @@ class AuthStore{
     message=''
     sucess=false
     currentUser=null
+    openPasswordRestore=false
 
     constructor(){
         makeAutoObservable(this)
@@ -30,6 +31,10 @@ class AuthStore{
     }
     setCurrentUser(currentUser){
         this.currentUser=currentUser
+    }
+
+    setOpenPasswordRestore(open){
+        this.openPasswordRestore=open
     }
 
   

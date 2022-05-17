@@ -11,12 +11,15 @@ import Playlist from "./components/Playlist";
 import Search from "./components/Search";
 import UserPlaylist from "./components/UserPlaylist";
 import UserPlaylistDetail from "./components/UserPlaylistDetail";
+import Restore from "./components/Restore";
+import NotFound from "./components/NotFound";
 function App() {
   return (
     <BrowserRouter >
       <Navbar/>
       <main className="main">
       <Routes>
+      <Route exact path='/restore/:id' element={<Restore />} />
         <Route exact path='/' element={<Home />} />
         <Route exact path='/about' element={<About />} />
         <Route exact path='/services' element={<Services/>} />
@@ -27,6 +30,7 @@ function App() {
         <Route exact path='/search' element={<Search/>} />
         <Route exact path='/user/playlists' element={<UserPlaylist/>} />
         <Route exact path='/user/playlist/detail/:id' element={<UserPlaylistDetail/>} />
+        <Route exact path='*' element={<NotFound/>} />
       </Routes>
       </main>
         <Footer/>

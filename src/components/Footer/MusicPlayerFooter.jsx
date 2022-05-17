@@ -22,7 +22,7 @@ const MusicPlayerFooter = observer(()=>{
   return (
     <AudioPlayer
         // style={{ width: "300px" }}
-        style={{ backgroundColor:"black",color:"white"}}
+        style={{ backgroundColor:"black",color:"white",marginTop:"40px"}}
         // layout="horizontal"
         autoPlay={false}
         src={musicStore?.musicByCategories[musicStore.trackIndex]?.music?.url||musicStore?.musicByCategories[musicStore.trackIndex]?.url}
