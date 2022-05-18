@@ -1,7 +1,7 @@
 import axios from "axios";
 const recognize=(blob)=>{
   let data = {
-    'api_token': '230c804a4a77a08594b3115e6e12e8bb',
+    'api_token': '7d6c04fbe6c905364f6de2da7861fc2c',
     'file': blob,
 };
     const options = {
