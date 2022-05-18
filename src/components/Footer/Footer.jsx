@@ -6,7 +6,7 @@ const Footer = ({player}) => {
   const user=getUser()
   
   return (
-    <>
+    <footer>
     {user?
     <MusicPlayerFooter player={player} />:
     <Info/>
@@ -18,7 +18,7 @@ const Footer = ({player}) => {
       <a href="https://rapidapi.com/search/spotify">music APIs</a>
     </p>
   </section>
-    </>
+  </footer>
   )
 }
 

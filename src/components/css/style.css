@@ -985,4 +985,13 @@ a:focus {
   padding-top: 30px;
 }
 
+#root{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.main{
+  flex:1 1 auto;
+}
+
 
