@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite'
 import play from '../../images/play.png'
 import MusicListModal from '../PlayList/MusicListModal'
 import { getUser } from '../../service/tokenService'
-import download from '../../images/download.png'
+import download from '../../images/download2.png'
 import Pagination from '@mui/material/Pagination';
 import { getMusicByPattern } from '../../service/musicService'
 const SearchResponseContent = observer(()=>{

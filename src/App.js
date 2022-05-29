@@ -13,6 +13,7 @@ import UserPlaylist from "./components/UserPlaylist";
 import UserPlaylistDetail from "./components/UserPlaylistDetail";
 import Restore from "./components/Restore";
 import NotFound from "./components/NotFound";
+import Profile from "./components/Profile";
 function App() {
   return (
     <BrowserRouter >
@@ -30,6 +31,7 @@ function App() {
         <Route exact path='/search' element={<Search/>} />
         <Route exact path='/user/playlists' element={<UserPlaylist/>} />
         <Route exact path='/user/playlist/detail/:id' element={<UserPlaylistDetail/>} />
+        <Route exact path='/profile' element={<Profile/>} />
         <Route exact path='*' element={<NotFound/>} />
       </Routes>
       </main>

@@ -36,7 +36,7 @@ const PlayListDetailResponse = observer(()=>{
         </div>
         )})}
         </div>
-        <div className="pagination-music" style={{marginBottom:"10px"}}>
+        <div className="pagination-music" style={{color:"white"}} >
             {playlistStore?.musicBySearch?.content?.length!==0?
         <Pagination count={playlistStore.musicBySearch.totalPages} page={playlistStore.page} onChange={(e,value)=>playlistStore.handleOnChange(playlistStore.searchValue,value-1,10)} />
             :'По вашему запросу ничего не найдено'}

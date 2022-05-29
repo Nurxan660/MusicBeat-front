@@ -9,7 +9,11 @@ import { removeUser } from '../../store/tokenService'
 import { getUser } from '../../service/tokenService'
 import { useNavigate } from 'react-router-dom'
 import authStore from '../../store/authStore'
+import profile from '../../images/profile.png'
+import ProfileMenu from './ProfileMenu'
 const Navbar = () => {
+  const anchorRef = React.useRef(null);
+
   const currentUser=getUser()
   const [open,setOpen]=useState(false);
   const [openInput,setOpenInput]=useState(false)
@@ -21,15 +25,9 @@ const Navbar = () => {
     e.preventDefault();
     setOpenInput(!openInput)
   }
-  const handleLogOut=()=>{
-    logout(currentUser?.id).then(()=>{
-        navigate('/')
-        removeUser()
-        authStore.setCurrentUser(undefined) 
-        
-    })
-}
+ 
   return (
+    <>
     <header className="header_section">
     <div className="container">
       <nav className="navbar navbar-expand-lg custom_nav-container ">
@@ -68,9 +66,7 @@ const Navbar = () => {
               <a className="nav-link" >Playlists</a>
             </li>
             </Link>
-              <li className="nav-item" >
-              <a className="nav-link" onClick={handleLogOut}>LogOut</a>
-            </li>
+              
             </>
             ):(<Link to="/signin" className="nav-navigation">
             <li className="nav-item">
@@ -79,21 +75,26 @@ const Navbar = () => {
             </Link>)}
             
             {currentUser&&(
-              <li className="nav-item">
-              <a className="nav-link" >{currentUser.email}</a>
+              <li className="nav-item-email" ref={anchorRef}
+              id="composition-button"
+              aria-controls={open ? 'composition-menu' : undefined}
+              aria-expanded={open ? 'true' : undefined}
+              aria-haspopup="true"
+              onClick={()=>authStore.setOpenNavbar(!authStore.openNavbar)}>
+                <img src={profile} />
+              <a className="nav-link-email" >{currentUser.email}</a>
             </li>
             )}
             
           </ul>
-          <form className="form-inline my-2 my-lg-0">
-            <input className={openInput?"form-control nav_search-input mr-sm-2":"form-control nav_search-input mr-sm-2 d-none"} type="search" placeholder="Search"
-              aria-label="Search" value=""  />
-            <button className="btn  my-2 my-sm-0 nav_search-btn" type="submit" onClick={handleInputClick}></button>
-          </form>
+         
         </div>
       </nav>
     </div>
+    
   </header>
+  <ProfileMenu anchorRef={anchorRef}/>
+  </>
   )
 }
 

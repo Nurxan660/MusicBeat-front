@@ -6,7 +6,7 @@ const Footer = ({player}) => {
   const user=getUser()
   
   return (
-    <footer>
+    <footer style={{}}>
     {user?
     <MusicPlayerFooter player={player} />:
     <Info/>

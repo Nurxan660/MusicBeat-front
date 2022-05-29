@@ -9,6 +9,7 @@ class AuthStore{
     sucess=false
     currentUser=null
     openPasswordRestore=false
+    openNavbar=false;
 
     constructor(){
         makeAutoObservable(this)
@@ -35,6 +36,9 @@ class AuthStore{
 
     setOpenPasswordRestore(open){
         this.openPasswordRestore=open
+    }
+    setOpenNavbar(open){
+        this.openNavbar=open
     }
 
   

@@ -80,9 +80,24 @@ a:focus {
 .logo_box img {
   width: 100%;
 }
+.nav-item-email{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color:#2ECC71;
+}
+.nav-link-email{
+  margin-left: 5px;
+}
+.nav-item-log:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .nav-item{
   cursor: pointer;
 }
+
 
 .call_to_btn {
   display: inline-block;
@@ -888,8 +903,8 @@ a:focus {
 .music{
   padding: 20px;
   display: flex;
-  background-color: #fff9e1;
-  margin: 30px;
+  background-color: #c5875a;
+  color: white;
 }
 .music-image{
   height: 250px;
@@ -921,6 +936,15 @@ a:focus {
   justify-content: space-between;
   border-bottom: 1px solid gainsboro;
 }
+.music-list-header-black{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gainsboro;
+}
 .music-list-content{
   display: flex;
   justify-content: space-between;
@@ -928,8 +952,24 @@ a:focus {
   align-items: center;
   padding: 7px;
 }
+.music-list-content-black{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 7px;
+  margin-top: 20px;
+}
+.music-list-black{
+  background-color: #111111;
+  padding-bottom: 20px;
+  color: white;
+}
 .music-list-content:hover{
-  background-color: rgb(210, 207, 207);
+  background-color: rgba(169, 169, 173, 0.358);
+}
+.music-list-content-black:hover{
+  background-color: rgba(169, 169, 173, 0.358);
 }
 .music-list-img{
   height: 60px;
@@ -974,6 +1014,7 @@ a:focus {
 .download{
   height: 25px;
   width: 25px;
+  z-index: 2;
 }
 .down{
   display: flex;
@@ -983,6 +1024,7 @@ a:focus {
   display: flex;
   justify-content: center;
   padding-top: 30px;
+  padding-bottom: 15px;
 }
 
 #root{
@@ -991,6 +1033,7 @@ a:focus {
   flex-direction: column;
 }
 .main{
+  height: 100%;
   flex:1 1 auto;
 }
 

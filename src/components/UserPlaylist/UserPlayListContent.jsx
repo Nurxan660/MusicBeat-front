@@ -33,9 +33,9 @@ const UserPlayListContent = observer(()=>{
           
       </div>
       
-      <div className="playlist-pagination" >
+      <div className="playlist-pagination"  >
       {playlistStore?.userPlaylists?.content?.length!==0?
-          <Pagination count={playlistStore?.userPlaylists?.totalPages} onChange={(e,value)=>playlistStore.setPage(value)} />
+          <Pagination count={playlistStore?.userPlaylists?.totalPages}  onChange={(e,value)=>playlistStore.setPage(value)}  />
           :'Плейлистов не найдено'}
       </div>
       </>

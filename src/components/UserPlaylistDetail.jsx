@@ -6,11 +6,13 @@ import PlaylistAdded from './UserPlaylistDetail/PlaylistAdded'
 const UserPlaylistDetail = () => {
   return (
       <>
-    <PlaylistDetailsNav/>
+    <PlaylistDetailsNav />
+    <div style={{backgroundColor:"#111111",height:"100%",paddingTop:"13px"}}>
     <PlaylistAdded/>
     <hr/>
     <PlayListDetaiSearch/>
     <PlayListDetailResponse/>
+    </div>
     </>
   )
 }

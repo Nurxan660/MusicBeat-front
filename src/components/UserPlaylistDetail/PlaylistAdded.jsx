@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import play from '../../images/play.png'
+import play2 from '../../images/play2.png'
 import download from '../../images/download.png'
 import { Pagination } from '@mui/material'
 import { getByUniqueAddress } from '../../service/playlistService'
@@ -34,10 +34,10 @@ const PlaylistAdded = observer(()=>{
       <>
       {playlistStore?.userPlaylistMusic?.content?.map((d,index)=>{
           return (
-            <div className="music-list-content" style={{marginLeft:"240px",marginRight:"240px",marginTop:"10px"}}>
+            <div className="music-list-content" style={{marginLeft:"10px",marginRight:"10px",color:"white"}}>
             <div className="music-list-name">
                 
-                <img src={play}  className="play" onClick={()=>audioFunction(index)} />
+                <img src={play2}  className="play" onClick={()=>audioFunction(index)} />
                 
                 <div className="music-list-img">
                     <img src={d?.music?.imageUrl} />
@@ -48,13 +48,13 @@ const PlaylistAdded = observer(()=>{
             <button style={{border:"none",backgroundColor:"black",color:"white",borderRadius:"7px"}} onClick={()=>handleDeleteButton(d?.music?.musicId)}>Удалить</button>
             <div className='down'>
             <span className="musicList-duration">2:32</span>
-            <a href={d?.music?.downloadUrl} style={{textDecoration:"none"}} download><img src={download} style={{cursor:"pointer"}} className="download"/></a>
+            <a href={d?.music?.downloadUrl} style={{textDecoration:"none"}} download><img src={download} className="download"/></a>
             </div>
         </div>
           )
       })
     }
-            <div className="playlist-pagination" style={{marginTop:"10px"}}>
+            <div className="playlist-pagination" style={{marginTop:"10px",color:"white"}}>
              <Pagination count={playlistStore.userPlaylistMusic.totalPages} onChange={(e,value)=>playlistStore.setDetailPage(value)}/>
              </div>
             </>

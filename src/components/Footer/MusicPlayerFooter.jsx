@@ -22,7 +22,7 @@ const MusicPlayerFooter = observer(()=>{
   return (
     <AudioPlayer
         // style={{ width: "300px" }}
-        style={{ backgroundColor:"black",color:"white",marginTop:"40px"}}
+        style={{ backgroundColor:"black",color:"white"}}
         // layout="horizontal"
         autoPlay={false}
         src={musicStore?.musicByCategories[musicStore.trackIndex]?.music?.url||musicStore?.musicByCategories[musicStore.trackIndex]?.url}
@@ -30,7 +30,7 @@ const MusicPlayerFooter = observer(()=>{
         showSkipControls={true}
         showJumpControls={false}
         header={`${musicStore?.musicByCategories[musicStore.trackIndex]?.music?.name||musicStore?.musicByCategories[musicStore.trackIndex]?.name}`}
-        preload="none"
+        preload="auto"
         ref={player}
         onClickPrevious={handleClickPrevious}
         onClickNext={handleClickNext}

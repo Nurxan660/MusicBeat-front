@@ -8,13 +8,14 @@ import PlaylistCreationForm from './UserPlaylist/PlaylistCreationForm'
 const Home = () => {
   return (
     <>
-    
+    <div style={{paddingBottom:"20px"}}>
     <Slider/>
     <Welcome/>
     <Service/>
     <TopCharts/>
     <Story/>
     <PlaylistCreationForm/>
+    </div>
     
     </>
   )

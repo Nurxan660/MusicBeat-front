@@ -1,4 +1,4 @@
-import React,{useRef} from 'react'
+import React,{useRef, useState} from 'react'
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
@@ -7,7 +7,8 @@ import { observer } from 'mobx-react-lite';
 import authStore from '../../store/authStore';
 import {isEmail} from 'validator'
 import { reg } from '../../service/authService';
-import Alert from '@mui/material/Alert';
+import { Alert,CircularProgress } from '@mui/material';
+
 
 const validEmail=(value)=>{
     
@@ -42,6 +43,7 @@ const Reg=observer(()=>{
     const navigate=useNavigate()
     const form=useRef()
     const checkBtn = useRef();
+    const [loading,setLoading]=useState(false)
  
 
     
@@ -63,20 +65,22 @@ const onChangeEmail=(e)=>{
 
     const handleOnSubmit=(e)=>{
         e.preventDefault();
-        
+        setLoading(true)
         form.current.validateAll()
         if (checkBtn.current.context._errors.length === 0) {
         reg(authStore.nickname,authStore.email, authStore.password)
     .then((res)=>{
-        
+        setLoading(false)
         authStore.setMessage(res.data.message)
-        setTimeout(()=>{
-            authStore.setMessage(null)
-        },2000)
         authStore.setSucess(true)
-        navigate("/signin")
+        setTimeout(()=>{
+            authStore.setMessage("")
+        },2000)
+        return res
+        
     })
     .catch((err)=>{
+        setLoading(false)
         authStore.setMessage(err.response.data.message)
         authStore.setSucess(false)
         
@@ -106,6 +110,9 @@ const onChangeEmail=(e)=>{
 				<div className="group">
 					<Input type="submit" className="button" value="Sign Up"/>
 				</div>
+                {loading&&
+                    <CircularProgress color="success" style={{marginTop:"10px",marginLeft:"170px"}} />
+                        }
                 {authStore.message&&
     ( <div className="auth-alert">
         {authStore.sucess?<Alert severity="success">{authStore.message}</Alert>:<Alert severity="error">{authStore.message}</Alert>}

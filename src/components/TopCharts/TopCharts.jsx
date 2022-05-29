@@ -81,10 +81,10 @@ const TopCharts = () => {
           ]
       };
   return (
-    <section className="security_section layout_padding">
+    <section className="security_section layout_padding" >
       {categories?.map((d)=>{
           return (
-            <div key={d.mainCategoryId}>
+            <div key={d.mainCategoryId} style={{marginTop:"15px"}}>
     <h3 style={{marginBottom:"20px"}}>
     {d.mainCategoryName}
 

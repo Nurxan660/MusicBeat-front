@@ -13,8 +13,7 @@ const MusicContent = observer(()=>{
         <div className="music-description">
             
             <p>{musicStore?.musicByCategories[0]?.category?.categoryName}</p>
-            <h6>{musicStore?.musicByCategories[0]?.music?.name}</h6>
-            <h6>{musicStore?.musicByCategories[0]?.music?.duration}</h6>
+            <h6>{musicStore?.musicByCategories?.length+" tracks"}</h6>
             
         </div>
         </div>

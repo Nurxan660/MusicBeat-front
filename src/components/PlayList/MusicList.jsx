@@ -2,7 +2,7 @@ import React from 'react'
 import tame from '../../images/tame.png'
 import musicStore from '../../store/musicStore'
 import { observer } from 'mobx-react-lite'
-import play from '../../images/play.png'
+import play from '../../images/play2.png'
 import MusicListModal from './MusicListModal'
 import { getUser } from '../../service/tokenService'
 import download from '../../images/download.png'
@@ -28,29 +28,29 @@ const MusicList = observer(({player})=>{
   return (
       
        <>
-        <div className="music-list">
-        <div className="music-list-header">
+        <div className="music-list-black">
+        <div className="music-list-header-black">
             <span>Name</span>
             <span>Album</span>
             <span>Duration</span>
         </div>
         {musicStore.musicByCategories.map((d,index)=>{
       return (
-            <div className="music-list-content">
+            <div className="music-list-content-black">
                 <div className="music-list-name">
                     
                     <img src={play}  className="play" onClick={()=>audioFunction(index)}/>
                     
                     <div className="music-list-img">
-                        <img src={d.music.imageUrl}/>
+                        <img src={d?.music?.imageUrl}/>
                     </div>
-                    <span className="musicName">{d.music.author}</span>
+                    <span className="musicName">{d?.music?.author}</span>
                 </div>
-                <span className="album">{d.music.album}</span>
+                <span className="album">{d?.music?.album}</span>
                 <div className='down'>
-                <span className="musicList-duration">{d.music.duration}</span>
+                <span className="musicList-duration">{d?.music?.duration}</span>
                 {user&&
-                <a href={d.music.downloadUrl}  style={{textDecoration:"none"}} ><img src={download} style={{cursor:"pointer"}} className="download"/></a>
+                <a href={d?.music?.downloadUrl}  style={{textDecoration:"none"}} ><img src={download} style={{cursor:"pointer"}} className="download"/></a>
                  }
                 </div>
             </div>)})}
